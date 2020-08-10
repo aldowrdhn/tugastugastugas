@@ -1,0 +1,18 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Checkout extends Model
+{
+    protected $guarded = [];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function finalcheckout() {
+        return $this->hasMany(Finalcheckout::class, 'checkout_id', 'id');
+    }
+}
